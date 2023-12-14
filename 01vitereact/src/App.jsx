@@ -1,11 +1,12 @@
+import Chai from "./Chai";
 
 function App() {
-
   return (
-    
-      <h1>Hii I am using React with Vite</h1>
-   
-  )
+    <>
+      <h1>Chai aur React</h1>
+      <Chai />
+    </>
+  );
 }
 
-export default App
+export default App;
