@@ -3,16 +3,19 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 
 function App() {
-  const [length, setLength] = useState(8);
+  //All the use state hooks that are used
+  const [length, setLength] = useState(8); //For default password length
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(false); //for button clicked light blue an dark blue
 
   //useRef hook
   const passwordRef = useRef(null);
 
+  //function for generating random password
   const passwordGenerator = useCallback(() => {
+    //useCallback for better memory management
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     if (numberAllowed) str += "0123456789";
@@ -26,14 +29,15 @@ function App() {
   }, [length, numberAllowed, charAllowed, setPassword]);
 
   const copyPassword = useCallback(() => {
-    passwordRef.current?.select();
-    window.navigator.clipboard.writeText(password);
+    passwordRef.current?.select(); //if the button pressed then the password will be selected
+    window.navigator.clipboard.writeText(password); //for copying password into clipboard
     setIsClicked(true);
     setTimeout(() => {
       setIsClicked(false);
     }, 2000);
   }, [password]);
 
+  //Use effect hook for calling passwordGenerator() function
   useEffect(() => {
     passwordGenerator();
   }, [length, numberAllowed, charAllowed, passwordGenerator]);
@@ -48,11 +52,11 @@ function App() {
           className="outline-none w-full py-1 px-3"
           placeholder="Password"
           readOnly
-          ref={passwordRef}
+          ref={passwordRef} //for referencing and communicating bwn paswword and useRef hook
         />
         <button
           className={`outline-none ${
-            isClicked ? "bg-blue-500" : "bg-blue-700"
+            isClicked ? "bg-blue-500" : "bg-blue-700" //string manipulation for button click
           } text-white px-3 py-0.5 shrink-0`}
           onClick={copyPassword}
         >
