@@ -7,6 +7,7 @@ function App() {
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
+  const [isClicked, setIsClicked] = useState(false);
 
   //useRef hook
   const passwordRef = useRef(null);
@@ -27,6 +28,10 @@ function App() {
   const copyPassword = useCallback(() => {
     passwordRef.current?.select();
     window.navigator.clipboard.writeText(password);
+    setIsClicked(true);
+    setTimeout(() => {
+      setIsClicked(false);
+    }, 2000);
   }, [password]);
 
   useEffect(() => {
@@ -46,10 +51,12 @@ function App() {
           ref={passwordRef}
         />
         <button
-          className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0"
+          className={`outline-none ${
+            isClicked ? "bg-blue-500" : "bg-blue-700"
+          } text-white px-3 py-0.5 shrink-0`}
           onClick={copyPassword}
         >
-          copy
+          {isClicked ? "copied" : "copy"}
         </button>
       </div>
       <div className="flex text-sm gap-x-2">
