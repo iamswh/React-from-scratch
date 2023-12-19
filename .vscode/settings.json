@@ -1,7 +1,18 @@
 {
-  "editor.fontFamily": "fira code, 'Courier New', monospace",
-  "editor.fontSize": 16,
-  "editor.fontVariations": false,
-  "editor.fontWeight": "400",
-  "editor.fontLigatures": true
-}
+  "editor.fontFamily": "Cascadia Code, 'Courier New', monospace",
+  // "editor.fontLigatures": "true",
+  "editor.fontLigatures": "'calt', 'ss01'",
+    "editor.fontWeight": "355",
+    "workbench.colorTheme": "Atom One Dark",
+    "editor.letterSpacing": 0.3,
+    "editor.fontSize": 15,
+    "files.autoSave": "onFocusChange",
+    "editor.mouseWheelZoom": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  }
+
