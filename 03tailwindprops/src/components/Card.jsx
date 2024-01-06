@@ -1,6 +1,9 @@
 import React from "react";
 
-const Card = ({ username = "UserName", btnText }) => {          // '''="UserName"''' This is the default value for the props if it is not passes inside app.jsx file
+const Card = ({ username = "UserName", btnText }) => {
+  // '''="UserName"''' This is the default value for the props if it is not passes inside app.jsx file
+  // const Card = (props) => {
+  //   // '''="UserName"''' This is the default value for the props if it is not passes inside app.jsx file
   return (
     <div className="relative h-[400px] w-[300px] rounded-md">
       <img
